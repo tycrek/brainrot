@@ -10,19 +10,27 @@ const log = new Logger(`${pkg.name} v${pkg.version} |`);
 
 // Command line operation
 if (require.main === module) {
+	const args = process.argv.slice(2);
 
-	// Parse CLI args
-	const args = process.argv.slice(2).reduce((acc, arg) => {
-		const [key, value] = arg.split('=');
-		acc[key.replaceAll('-', '')] = value;
-		return acc;
-	}, {} as Record<string, string>);
+	// Get rotations, if specified
+	let rotations: number | undefined;
+	for (let i = 0; i < args.length; i += 2)
+		if (args[i].startsWith('-r')) {
+			rotations = parseInt(args[i + 1]);
+			args.splice(0, 2);
+		}
 
-	const rotations: number | 'all' = args['r'] ? parseInt(args['r']) : 'all';
-	const input = 'hi';
+	// Validate rotations
+	if (Number.isNaN(rotations))
+		throw new Error('Invalid rotation provided');
 
-	if (rotations === 'all')
-		for (let offset = 0; offset <= 26; offset++)
-			cipher(input, offset);
-	else cipher(input, rotations);
+	// Construct & validate input
+	let input = args.join(' ');
+	if (!input || input === '')
+		throw new Error('No input provided');
+
+	if (rotations)
+		cipher(input, rotations);
+	else for (let rot = 0; rot <= 26; rot++)
+		cipher(input, rot);
 }
