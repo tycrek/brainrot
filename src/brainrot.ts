@@ -31,7 +31,7 @@ if (require.main === module) {
 		throw new Error('No input provided');
 
 	if (rotations)
-		cipher(input, rotations);
+		cipher(input, rotations, false);
 	else for (let rot = 0; rot <= 26; rot++)
 		cipher(input, rot);
 }

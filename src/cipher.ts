@@ -6,7 +6,7 @@ import { CLI_COLOURS as colours } from "./logger";
 /**
  * Rotation cipher (shift) letters in a string
  */
-export function cipher(word: string, offset: number) {
+export function cipher(word: string, offset: number, displayOffset = true) {
 
 	// Iterate over the whole length of the alphabet
 	const shiftedLetters = [];
@@ -17,7 +17,7 @@ export function cipher(word: string, offset: number) {
 
 	// Print our shifted result
 	console.log(''
-		.concat(`${offset < 10 ? ' ' : ''}${colours.grey}${offset}: `)
+		.concat(displayOffset ? `${offset < 10 ? ' ' : ''}${colours.grey}${offset}: ` : '')
 		.concat(`${colours[offset % 26 === 0 ? 'green' : 'turquoise']}${shiftedLetters.join('')}${colours.RESET}`));
 }
 
