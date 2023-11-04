@@ -3,6 +3,7 @@
 import { Logger } from './logger';
 import fs from 'fs';
 import path from 'path';
+import { cipher } from './cipher';
 
 const pkg: { name: string, version: string, homepage: string } = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json')).toString());
 const log = new Logger(`${pkg.name} v${pkg.version} |`);
@@ -18,6 +19,10 @@ if (require.main === module) {
 	}, {} as Record<string, string>);
 
 	const rotations: number | 'all' = args['r'] ? parseInt(args['r']) : 'all';
+	const input = 'hi';
 
-	log.info(`Rotations: ${rotations}`);
+	if (rotations === 'all')
+		for (let offset = 0; offset <= 26; offset++)
+			cipher(input, offset);
+	else cipher(input, rotations);
 }
