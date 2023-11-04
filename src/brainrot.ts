@@ -1,12 +1,6 @@
 #!/usr/bin/env node
 
-import { Logger } from './logger';
-import fs from 'fs';
-import path from 'path';
 import { cipher } from './cipher';
-
-const pkg: { name: string, version: string, homepage: string } = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json')).toString());
-const log = new Logger(`${pkg.name} v${pkg.version} |`);
 
 // Command line operation
 if (require.main === module) {

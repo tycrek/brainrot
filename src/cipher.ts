@@ -1,7 +1,15 @@
 // * Contents originally copied from: https://github.com/tycrek-archive/rot-cipher/blob/master/app.js#L30-L85
 // * It has been modified to work with this repo.
 
-import { CLI_COLOURS as colours } from "./logger";
+const Colours = {
+	green: '\x1b[32m',
+	turquoise: '\x1b[36m',
+	blue: '\x1b[34m',
+	grey: '\x1b[90m',
+	yellow: '\x1b[33m',
+	red: '\x1b[31m',
+	RESET: '\x1b[0m',
+};
 
 /**
  * Rotation cipher (shift) letters in a string
@@ -17,8 +25,8 @@ export function cipher(word: string, offset: number, displayOffset = true) {
 
 	// Print our shifted result
 	console.log(''
-		.concat(displayOffset ? `${offset < 10 ? ' ' : ''}${colours.grey}${offset}: ` : '')
-		.concat(`${colours[offset % 26 === 0 ? 'green' : 'turquoise']}${shiftedLetters.join('')}${colours.RESET}`));
+		.concat(displayOffset ? `${offset < 10 ? ' ' : ''}${Colours.grey}${offset}: ` : '')
+		.concat(`${Colours[offset % 26 === 0 ? 'green' : 'turquoise']}${shiftedLetters.join('')}${Colours.RESET}`));
 }
 
 /**
