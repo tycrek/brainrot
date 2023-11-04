@@ -6,7 +6,8 @@
 	"scripts": {
 		"build": "rm -dr ./dist/ & tsc",
 		"release": "npx np",
-		"dev": "npm run build && echo \"\n[Run 1]\n\" && node . Cipher Time && echo \"\n[Run 2]\n\" && node . -r 10 Cipher Time"
+		"dev": "npm run build && echo \"\n[Run 1]\n\" && node . Cipher Time && echo \"\n[Run 2]\n\" && node . -r 10 Cipher Time",
+		"test": "npm run build && node . This is a test"
 	},
 	"files": [
 		"dist"
