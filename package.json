@@ -15,6 +15,9 @@
 	"publishConfig": {
 		"access": "public"
 	},
+	"engines": {
+		"node": ">=12"
+	},
 	"bin": "dist/brainrot.js",
 	"repository": "github:tycrek/brainrot",
 	"keywords": [
