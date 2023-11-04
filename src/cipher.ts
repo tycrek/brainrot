@@ -13,7 +13,7 @@ export function cipher(word: string, offset: number) {
 
 	// Iterate through each letter in the original word
 	for (let i = 0; i < word.length; i++)
-		shiftedLetters.push(String.fromCharCode(shiftCode(word.charCodeAt(i), offset)));
+		shiftedLetters.push(word[i] === ' ' ? ' ' : String.fromCharCode(shiftCode(word.charCodeAt(i), offset)));
 
 	// Print our shifted result
 	console.log(''
