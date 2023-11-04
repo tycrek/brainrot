@@ -1,6 +1,6 @@
 {
 	"name": "brainrot",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "A ROT cipher tool",
 	"main": "dist/brainrot.js",
 	"scripts": {
