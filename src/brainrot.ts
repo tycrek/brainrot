@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Logger } from './logger';
 import fs from 'fs';
 import path from 'path';

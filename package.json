@@ -14,9 +14,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"bin": {
-		"brainrot": "dist/brainrot.js"
-	},
+	"bin": "dist/brainrot.js",
 	"repository": "github:tycrek/brainrot",
 	"keywords": [
 		"rot",
