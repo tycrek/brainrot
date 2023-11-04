@@ -17,8 +17,9 @@ if (require.main === module) {
 	for (let i = 0; i < args.length; i += 2)
 		if (args[i].startsWith('-r')) {
 			rotations = parseInt(args[i + 1]);
-			args.splice(0, 2);
+			args.splice(i, 2);
 		}
+		else i--; // Offset the +=2
 
 	// Validate rotations
 	if (Number.isNaN(rotations))
